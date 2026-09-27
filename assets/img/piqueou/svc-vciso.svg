@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="vCISO et vCIO">
+<rect width="800" height="480" fill="#1B6E6E"/>
+<defs><pattern id="g-svc-vciso" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/></pattern>
+<path id="ring-svc-vciso" d="M 250 240 m -118 0 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0"/></defs>
+<rect width="800" height="480" fill="url(#g-svc-vciso)"/>
+<circle cx="250" cy="240" r="150" fill="#fff" fill-opacity="0.08"/>
+<circle cx="250" cy="240" r="132" fill="none" stroke="#fff" stroke-opacity="0.55" stroke-width="3"/>
+<circle cx="250" cy="240" r="102" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 7"/>
+<text font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#fff" fill-opacity="0.85"><textPath href="#ring-svc-vciso" startOffset="0" textLength="730" lengthAdjust="spacing">VCISO &#183; VCIO &#183; GOUVERNANCE TI &#183; DIRECTION &#183; </textPath></text>
+<g transform="translate(250 205)"><circle cx="0" cy="-8" r="20" fill="#fff"/><path d="M-34 46 C-34 16 -18 2 0 2 C18 2 34 16 34 46" fill="#fff"/><path d="M18 -20 a20 20 0 0 1 0 24" fill="none" stroke="#1B6E6E" stroke-width="6" stroke-linecap="round"/></g>
+<text x="250" y="292" text-anchor="middle" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="34" font-weight="800" fill="#fff">vCISO</text>
+<rect x="530" y="90" width="220" height="300" rx="14" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.3"/>
+<rect x="560" y="130" width="170" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="164" width="140" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="198" width="160" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="232" width="120" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="266" width="150" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="300" width="110" height="10" rx="5" fill="#fff" opacity="0.18"/>
+<g transform="translate(700 350)"><circle r="26" fill="#fff"/><path d="M-11 0 L-3 8 L12 -8" fill="none" stroke="#1B6E6E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

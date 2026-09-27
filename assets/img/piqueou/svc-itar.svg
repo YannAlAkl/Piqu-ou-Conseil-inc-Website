@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Biens contrôlés et ITAR">
+<rect width="800" height="480" fill="#8C3B2E"/>
+<defs><pattern id="g-svc-itar" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/></pattern>
+<path id="ring-svc-itar" d="M 250 240 m -118 0 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0"/></defs>
+<rect width="800" height="480" fill="url(#g-svc-itar)"/>
+<circle cx="250" cy="240" r="150" fill="#fff" fill-opacity="0.08"/>
+<circle cx="250" cy="240" r="132" fill="none" stroke="#fff" stroke-opacity="0.55" stroke-width="3"/>
+<circle cx="250" cy="240" r="102" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 7"/>
+<text font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#fff" fill-opacity="0.85"><textPath href="#ring-svc-itar" startOffset="0" textLength="730" lengthAdjust="spacing">ITAR &#183; BIENS CONTR&#212;L&#201;S &#183; D&#201;FENSE &#183; EXPORTATION &#183; </textPath></text>
+<g transform="translate(250 205)"><path d="M0 -40 L11 -12 L41 -12 L17 6 L26 36 L0 18 L-26 36 L-17 6 L-41 -12 L-11 -12 Z" fill="#fff"/></g>
+<text x="250" y="292" text-anchor="middle" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="38" font-weight="800" fill="#fff">ITAR</text>
+<rect x="530" y="90" width="220" height="300" rx="14" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.3"/>
+<rect x="560" y="130" width="170" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="164" width="140" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="198" width="160" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="232" width="120" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="266" width="150" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="300" width="110" height="10" rx="5" fill="#fff" opacity="0.18"/>
+<g transform="translate(700 350)"><circle r="26" fill="#fff"/><path d="M-11 0 L-3 8 L12 -8" fill="none" stroke="#8C3B2E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

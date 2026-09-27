@@ -1,0 +1,229 @@
+/*--------------------------------------------------------------
+# Piqueou Consulting — surcouche de marque pour Stratify
+# Chargé APRÈS main.css. Ne modifie pas le gabarit d'origine.
+--------------------------------------------------------------*/
+
+/* Polices — même esprit que asimm.org : Raleway (titres) + Roboto (texte) */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Raleway", "Segoe UI", sans-serif;
+  --nav-font: "Raleway", "Segoe UI", sans-serif;
+}
+
+/* Couleurs : neutres (blanc / noir / anthracite) + vert du logo en accent seulement */
+:root {
+  --background-color: #ffffff;
+  --default-color: #4a4a46;
+  --heading-color: #151515;
+  --accent-color: #467f1f;      /* vert du logo assombri, lisible sur blanc */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #3a3a37;
+  --nav-hover-color: #467f1f;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #3a3a37;
+  --nav-dropdown-hover-color: #467f1f;
+
+  --pq-ink: #0b0b0b;            /* noir des sections sombres */
+  --pq-ink-2: #1b1b1b;
+  --pq-brand: #72b43c;          /* vert exact du logo */
+  --pq-navy: #151515;
+  --pq-navy-2: #2e2e2e;
+}
+
+.light-background {
+  --background-color: #f7f6f3;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #0b0b0b;
+  --default-color: #c9c9c4;
+  --heading-color: #ffffff;
+  --accent-color: #72b43c;
+  --surface-color: #1b1b1b;
+  --contrast-color: #0b0b0b;
+}
+
+/* Blocs pleins : fond clair au lieu de noir/vert — le vert reste en accent */
+.hero .visual-block .accent-badge,
+.about .image-block .experience-badge,
+.services .svc-card .svc-icon-panel,
+.why-us .visual-panel .badge-metric,
+.contact .inquiry-card .card-intro-panel {
+  --accent-color: #467f1f;
+  --contrast-color: #151515;
+  background: #eef4e8;
+  border: 1px solid rgba(70, 127, 31, 0.14);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+.hero .visual-block .accent-badge { background: #ffffff; box-shadow: 0 12px 34px rgba(0, 0, 0, 0.10); }
+.hero .visual-block .accent-badge .badge-icon { background: #eef4e8; }
+.hero .visual-block .accent-badge .badge-icon i,
+.about .image-block .experience-badge i,
+.services .svc-card .svc-icon-panel i,
+.contact .inquiry-card .card-intro-panel .intro-badge i { color: var(--accent-color); }
+.contact .inquiry-card .card-intro-panel .intro-badge { background: #ffffff; color: var(--accent-color); }
+.contact .inquiry-card .card-intro-panel p,
+.contact .inquiry-card .card-intro-panel .intro-note span { color: #4a4a46; }
+.hero .visual-block .image-wrapper { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+.hero .intro-content h1 em { color: #467f1f; }
+.footer { border-top: 1px solid rgba(0, 0, 0, 0.07); }
+
+/* En-tête clair et net, comme ASIMM */
+.header { --background-color: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.scrolled .header { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+
+body { font-size: 17px; }
+
+/* ---------- En-tête ---------- */
+.header .logo img { max-height: 46px; width: auto; margin-right: 10px; }
+.header .logo .sitename {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+.header .logo .sitename small {
+  display: block;
+  color: var(--default-color) !important;
+  white-space: nowrap;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-top: 4px;
+}
+.header-tools { display: flex; align-items: center; gap: 14px; }
+.header-tools .lang-switch {
+  font-family: var(--nav-font);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nav-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 75%);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.header-tools .lang-switch:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.header-tools .header-cta {
+  font-family: var(--nav-font);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  padding: 10px 20px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.header-tools .header-cta:hover { background: color-mix(in srgb, var(--accent-color), black 15%); color: var(--contrast-color); }
+@media (max-width: 575px) { .header-tools .header-cta { display: none; } }
+
+/* ---------- Héros ---------- */
+.hero .intro-content h1 { font-size: 3rem; letter-spacing: -0.8px; }
+.hero .intro-content h1 em { font-style: normal; color: var(--accent-color); }
+@media (max-width: 768px) { .hero .intro-content h1 { font-size: 2.1rem; } }
+.hero .intro-content p { color: var(--default-color); }
+.hero .metrics-row .metric-card .metric-info strong { font-size: 1.1rem; }
+.hero .visual-block .accent-badge .badge-info .badge-value { font-size: 1.05rem; }
+
+/* Bandeau des cadres sous le héros */
+.framework-strip {
+  padding: 22px 0;
+  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 88%);
+}
+.framework-strip .strip-label {
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+.framework-strip .fw-list { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center; justify-content: flex-end; }
+.framework-strip .fw-list span {
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--heading-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.framework-strip .fw-list i { color: var(--accent-color); }
+@media (max-width: 991px) { .framework-strip .fw-list { justify-content: flex-start; margin-top: 10px; } }
+
+/* ---------- Sections ---------- */
+.section-title h2 { letter-spacing: -0.3px; }
+.services .svc-card .svc-body h3 { font-size: 1.25rem; }
+.services .svc-card .svc-body .svc-frameworks { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 14px; }
+.services .svc-card .svc-body .svc-frameworks span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50px;
+  padding: 3px 10px;
+}
+
+.portfolio .showcase-card .card-image img { object-fit: cover; object-position: left center; }
+
+/* Formulaire : liste déroulante et consentement Loi 25 */
+.contact .inquiry-card .card-form-panel .field-wrap select {
+  width: 100%;
+  background-color: var(--surface-color);
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 0;
+  padding: 10px 0 12px;
+  font-size: 15px;
+  color: var(--default-color);
+  font-family: inherit;
+}
+.contact .inquiry-card .card-form-panel .field-wrap select:focus { outline: none; border-bottom-color: var(--accent-color); }
+.contact .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+.contact .consent input { margin-top: 4px; accent-color: var(--accent-color); width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Infolettre */
+.footer .newsletter-form { display: flex; gap: 8px; margin-top: 14px; max-width: 460px; }
+.footer .newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 75%);
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 15px;
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+.footer .newsletter-form input:focus { outline: 2px solid var(--accent-color); outline-offset: 1px; }
+.footer .newsletter-form button {
+  border: 0;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 700;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Emplacement à compléter */
+.todo { background: #fff4d6; color: #7a5200; border-radius: 4px; padding: 0 4px; }
+
+/* Messages du formulaire (masqués jusqu'à l'envoi — validate.js ajoute .d-block) */
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message { display: none; }
+.php-email-form .error-message { background: #c8553d; color: #fff; padding: 12px 16px; border-radius: 8px; font-weight: 600; }
+.php-email-form .sent-message { background: var(--accent-color); color: #fff; padding: 12px 16px; border-radius: 8px; font-weight: 600; text-align: center; }
+.php-email-form .loading { text-align: center; padding: 12px; }
+.php-email-form .d-block { display: block; }
+
+/* Mobile : menu hamburger à droite, après les outils */
+@media (max-width: 1199px) {
+  .header .navmenu { order: 3; margin-left: 12px; }
+  .header-tools { margin-left: auto; }
+}

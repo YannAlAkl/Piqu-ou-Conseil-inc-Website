@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" role="img" aria-label="Cybersécurité et conformité réglementaire">
+<rect width="800" height="480" fill="#6A3E8C"/>
+<defs><pattern id="g-svc-reglementaire" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 H0 V40" fill="none" stroke="#fff" stroke-opacity="0.08" stroke-width="1.5"/></pattern>
+<path id="ring-svc-reglementaire" d="M 250 240 m -118 0 a 118 118 0 1 1 236 0 a 118 118 0 1 1 -236 0"/></defs>
+<rect width="800" height="480" fill="url(#g-svc-reglementaire)"/>
+<circle cx="250" cy="240" r="150" fill="#fff" fill-opacity="0.08"/>
+<circle cx="250" cy="240" r="132" fill="none" stroke="#fff" stroke-opacity="0.55" stroke-width="3"/>
+<circle cx="250" cy="240" r="102" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="4 7"/>
+<text font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="14" font-weight="700" fill="#fff" fill-opacity="0.85"><textPath href="#ring-svc-reglementaire" startOffset="0" textLength="730" lengthAdjust="spacing">NIS2 &#183; LOI 25 &#183; GDPR &#183; R&#201;GLEMENTATION &#183; </textPath></text>
+<g transform="translate(250 205)"><rect x="-26" y="-6" width="52" height="42" rx="8" fill="#fff"/><path d="M-16 -6 V-18 C-16 -40 16 -40 16 -18 V-6" fill="none" stroke="#fff" stroke-width="8"/><circle cx="0" cy="12" r="6" fill="#6A3E8C"/><rect x="-3" y="12" width="6" height="12" fill="#6A3E8C"/></g>
+<text x="250" y="292" text-anchor="middle" font-family="'Plus Jakarta Sans','Segoe UI',Arial,sans-serif" font-size="26" font-weight="800" fill="#fff">CONFORME</text>
+<rect x="530" y="90" width="220" height="300" rx="14" fill="#fff" fill-opacity="0.12" stroke="#fff" stroke-opacity="0.3"/>
+<rect x="560" y="130" width="170" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="164" width="140" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="198" width="160" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="232" width="120" height="10" rx="5" fill="#fff" opacity="0.18"/><rect x="560" y="266" width="150" height="10" rx="5" fill="#fff" opacity="0.28"/><rect x="560" y="300" width="110" height="10" rx="5" fill="#fff" opacity="0.18"/>
+<g transform="translate(700 350)"><circle r="26" fill="#fff"/><path d="M-11 0 L-3 8 L12 -8" fill="none" stroke="#6A3E8C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

@@ -1,0 +1,208 @@
+// main: ../main.scss
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about {
+  padding: 100px 0;
+
+  .image-block {
+    position: relative;
+    padding: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65%;
+      height: 65%;
+      background-color: color-mix(in srgb, var(--accent-color), transparent 88%);
+      border-radius: 16px;
+      z-index: 0;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      border-radius: 16px;
+    }
+
+    .experience-badge {
+      position: absolute;
+      bottom: -10px;
+      left: 30px;
+      z-index: 2;
+      background-color: var(--accent-color);
+      border-radius: 10px;
+      padding: 18px 24px;
+      max-width: 300px;
+      box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-color), transparent 60%);
+
+      @media (max-width: 992px) {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 20px;
+        max-width: none;
+      }
+
+      .badge-inner {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--contrast-color);
+
+        i {
+          font-size: 28px;
+          flex-shrink: 0;
+        }
+
+        strong {
+          display: block;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        span {
+          font-size: 13px;
+          opacity: 0.85;
+        }
+      }
+    }
+  }
+
+  .info-panel {
+    .overline {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 40px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 2px;
+        background-color: var(--accent-color);
+      }
+    }
+
+    h2 {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      font-family: var(--heading-font);
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
+    }
+
+    .intro {
+      font-size: 18px;
+      line-height: 1.7;
+      color: color-mix(in srgb, var(--default-color), transparent 15%);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+
+    .text-content {
+      p {
+        font-size: 15px;
+        line-height: 1.8;
+        color: color-mix(in srgb, var(--default-color), transparent 30%);
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  .counter-row {
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    .counter-card {
+      padding: 20px;
+      border-left: 3px solid var(--accent-color);
+      background-color: color-mix(in srgb, var(--accent-color), transparent 96%);
+      border-radius: 0 8px 8px 0;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+
+      .count {
+        font-size: 40px;
+        font-weight: 700;
+        color: var(--accent-color);
+        line-height: 1;
+        font-family: var(--heading-font);
+      }
+
+      .count-suffix {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--accent-color);
+        font-family: var(--heading-font);
+      }
+
+      p {
+        font-size: 13px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: color-mix(in srgb, var(--default-color), transparent 40%);
+        margin: 8px 0 0 0;
+      }
+    }
+  }
+
+  .discover-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--accent-color), black 15%);
+      color: var(--contrast-color);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px color-mix(in srgb, var(--accent-color), transparent 50%);
+
+      i {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  @media (max-width: 992px) {
+    .info-panel {
+      margin-bottom: 50px;
+    }
+
+    .counter-row {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
