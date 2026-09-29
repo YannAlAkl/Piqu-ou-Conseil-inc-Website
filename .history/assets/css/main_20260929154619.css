@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,31 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Conteneur du panorama de filtres */
+.portfolio-filters.panorama-container {
+  display: flex;
+  flex-wrap: nowrap;          /* Empêche les filtres de revenir à la ligne */
+  overflow-x: auto;           /* Active le défilement horizontal */
+  white-space: nowrap;        /* Force le texte à rester sur une ligne */
+  scroll-behavior: smooth;    /* Défilement fluide */
+  -webkit-overflow-scrolling: touch; /* Défilement ultra-fluide sur iOS */
+  padding-bottom: 10px;       /* Évite de couper les ombres ou bordures */
+  gap: 15px;                  /* Espace entre chaque filtre */
+  justify-content: flex-start; /* Aligne au début pour le défilement */
+}
+
+/* Force chaque élément de filtre à conserver sa taille */
+.portfolio-filters.panorama-container li {
+  flex: 0 0 auto;             /* Empêche les éléments de rétrécir */
+}
+
+/* Masquer la barre de défilement sur tous les navigateurs */
+.portfolio-filters.panorama-container::-webkit-scrollbar {
+  display: none;              /* Safari, Chrome et Opera */
+}
+.portfolio-filters.panorama-container {
+  -ms-overflow-style: none;   /* Internet Explorer et Edge */
+  scrollbar-width: none;      /* Firefox */
 }

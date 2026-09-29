@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,59 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Fenêtre d'affichage masquant ce qui déborde de l'écran */
+.panorama-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 30px 0;
+}
+
+/* Le rail global qui défile continuellement */
+.panorama-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: scrollPanorama 25s linear infinite;
+}
+
+/* Les blocs contenant les cartes (alignement côte à côte) */
+.panorama-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Structure de chaque colonne de carte */
+.col-panorama {
+  flex: 0 0 350px !important; /* Largeur fixe de la carte */
+  width: 350px !important;
+  max-width: 350px !important;
+  padding: 0 15px !important; /* Espacement entre les cartes */
+  box-sizing: border-box !important;
+}
+
+/* Forcer toutes les cartes à avoir la même hauteur */
+.col-panorama .feat-card {
+  height: 100% !important;
+  min-height: 320px; /* Ajustez selon la longueur de votre texte */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between;
+}
+
+/* Pause l'animation au survol de la souris */
+.panorama-container:hover .panorama-track {
+  animation-play-state: paused;
+}
+
+/* Animation de défilement linéaire infini */
+@keyframes scrollPanorama {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Décale exactement de la moitié (un groupe complet) */
+  }
 }

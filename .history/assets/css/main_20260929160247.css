@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,62 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Fenêtre d'affichage générale sans coupure */
+.panorama-container {
+  overflow: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+  padding: 40px 0 !important;
+}
+
+/* Le rail horizontal global */
+.panorama-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important; /* Indispensable pour empêcher l'écrasement */
+  animation: scrollPanorama 35s linear infinite;
+}
+
+/* Les groupes de blocs alignés */
+.panorama-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Structure et dimensionnement strict des cartes */
+.col-panorama {
+  flex: 0 0 360px !important;    /* Empêche le redimensionnement automatique */
+  width: 360px !important;
+  max-width: 360px !important;
+  min-width: 360px !important;    /* Sécurité pour forcer la dimension */
+  padding: 0 15px !important;
+  box-sizing: border-box !important;
+}
+
+/* Forcer l'affichage interne complet de vos "feat-card" */
+.col-panorama .feat-card {
+  height: 100% !important;
+  min-height: 340px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Pause l'animation au survol */
+.panorama-container:hover .panorama-track {
+  animation-play-state: paused !important;
+}
+
+/* Animation fluide de défilement horizontal infini */
+@keyframes scrollPanorama {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Déplacement parfait basé sur la longueur du premier groupe */
+  }
 }

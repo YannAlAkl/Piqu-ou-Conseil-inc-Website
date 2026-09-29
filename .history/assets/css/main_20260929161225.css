@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,74 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* 1. Éliminer les restrictions du conteneur parent */
+.panorama-container {
+  overflow: hidden !important;
+  width: 100vw !important;             /* Force à prendre toute la largeur réelle de l'écran */
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;                /* Astuce pour sortir des conteneurs Bootstrap bridés */
+  transform: translateX(-50%) !important;
+  padding: 40px 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Le rail : sa largeur DOIT être la somme exacte du contenu pour ne pas être écrasée */
+.panorama-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;        /* Empêche les éléments de s'entasser */
+  animation: scrollPanorama 30s linear infinite !important;
+  will-change: transform;
+}
+
+/* 3. Groupes contenant les cartes côte à côte */
+.panorama-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+}
+
+/* 4. Largeur fixe et inflexible pour chaque carte */
+.col-panorama {
+  flex: 0 0 380px !important;           /* Bloque le redimensionnement automatique des navigateurs */
+  width: 380px !important;
+  max-width: 380px !important;
+  min-width: 380px !important;           /* Sécurité critique */
+  padding: 0 20px !important;           /* Espacement horizontal entre vos blocs */
+  box-sizing: border-box !important;
+  
+  /* Désactivation totale des conflits d'animation du template (AOS) */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* 5. Intérieur de vos cartes du template */
+.col-panorama .feat-card {
+  height: 100% !important;
+  min-height: 350px !important;         /* Ajustez selon la hauteur visuelle souhaitée */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+/* Mettre sur pause au survol de la souris */
+.panorama-container:hover .panorama-track {
+  animation-play-state: paused !important;
+}
+
+/* 6. L'animation de glissement horizontal */
+@keyframes scrollPanorama {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);       /* Glisse parfaitement d'un groupe entier */
+  }
 }

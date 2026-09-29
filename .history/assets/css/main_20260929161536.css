@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,78 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Container parent isolé de Bootstrap */
+.panorama-section-unique {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding: 40px 0 !important;
+}
+
+/* La fenêtre de vision du carrousel */
+.panorama-container {
+  overflow: hidden !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* LE RAIL : On calcule 8 cartes x 360px = 2880px obligatoires */
+.panorama-track {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 2880px !important;            /* Force le rail à être ultra-large */
+  min-width: 2880px !important;
+  animation: scrollPanoramaStrict 25s linear infinite !important;
+}
+
+/* Les deux groupes de 4 cartes */
+.panorama-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: 1440px !important;            /* 4 cartes x 360px = 1440px */
+  min-width: 1440px !important;
+}
+
+/* Chaque bloc de carte individuel */
+.col-panorama {
+  width: 360px !important;
+  min-width: 360px !important;
+  max-width: 360px !important;
+  padding: 0 15px !important;
+  box-sizing: border-box !important;
+  
+  /* Désactivation totale des effets d'invisibilité d'AOS du template */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Vos styles internes "feat-card" du template */
+.col-panorama .feat-card {
+  height: 100% !important;
+  min-height: 350px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Pause au survol */
+.panorama-container:hover .panorama-track {
+  animation-play-state: paused !important;
+}
+
+/* L'animation : Elle décale précisément de la largeur d'un groupe (1440px) */
+@keyframes scrollPanoramaStrict {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1440px);   /* Glisse parfaitement de la longueur exacte du groupe 1 */
+  }
 }

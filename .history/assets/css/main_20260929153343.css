@@ -1930,7 +1930,7 @@ section,
   transform: translateY(10px);
 }
 
-.portfolio .showcase-card .card-image .image-actions .action-btn:hover {
+.portfolio .showcase-card .card-imcage .image-actions .action-btn:hover {
   background-color: var(--accent-color);
   color: var(--contrast-color);
   transform: translateY(0);
@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--contrast-color);
+  color: var(--contrast- );
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;

@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,89 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+/* 1. FORCE LA SECTION À ACCEPTER LE CONTENU HORS-ÉCRAN (Annule le overflow: clip du template) */
+section#why-us, 
+.why-us {
+  overflow: visible !important;
+}
+
+/* 2. LE CONTENEUR : Empêche l'apparition d'une barre de défilement globale sur le site */
+.site-custom-panorama-section {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  overflow: hidden !important; /* Gère le rognage uniquement au niveau du carrousel */
+  padding: 40px 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* 3. LA VUE : Double sécurité pour encapsuler les cartes */
+.site-custom-panorama-viewport {
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* 4. LE RAIL : Aligne les éléments à l'infini à droite sans retour à la ligne */
+.site-custom-panorama-rail {
+  display: block !important;
+  white-space: nowrap !important;
+  width: max-content !important;
+  animation: scrollInfiniPourcent 20s linear infinite !important;
+}
+
+/* 5. LES GROUPES : Disposés l'un à côté de l'autre */
+.site-custom-panorama-group {
+  display: inline-block !important;
+  vertical-align: top !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+}
+
+/* 6. LES ENVELOPPES DE CARTES : Largeur fixe stricte */
+.site-custom-panorama-card-wrapper {
+  display: inline-block !important;
+  vertical-align: top !important;
+  width: 360px !important;
+  min-width: 360px !important;
+  max-width: 360px !important;
+  padding: 0 15px !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
+  
+  /* Désactive les interférences visuelles causées par le script AOS */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* 7. LES CARTES : Structure interne forcée */
+.site-custom-panorama-card-wrapper .feat-card {
+  display: block !important;
+  width: 100% !important;
+  min-height: 350px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Met l'animation en pause lors du survol de la souris */
+.site-custom-panorama-rail:hover {
+  animation-play-state: paused !important;
+}
+
+/* 8. L'ANIMATION : Glissement mathématique parfait */
+@keyframes scrollInfiniPourcent {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Décalage de 50% : la copie remplace le premier groupe au pixel près */
+  }
 }

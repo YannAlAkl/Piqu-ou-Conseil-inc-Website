@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,85 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Brise les restrictions de largeur imposées par la structure parente du template */
+.site-custom-panorama-section {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  overflow: hidden !important;
+  padding: 40px 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+}
+
+/* Masque ce qui dépasse de l'écran à droite et à gauche */
+.site-custom-panorama-viewport {
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+/* LE RAIL : Interdiction absolue de revenir à la ligne et largeur infinie automatique */
+.site-custom-panorama-rail {
+  display: block !important;
+  white-space: nowrap !important; /* Force les deux groupes à rester collés sur la même ligne */
+  width: max-content !important;
+  animation: scrollInfiniPourcent 20s linear infinite !important;
+}
+
+/* Alignement côte à côte des deux blocs (Original et Copie) */
+.site-custom-panorama-group {
+  display: inline-block !important;
+  vertical-align: top !important;
+  width: max-content !important;
+  white-space: nowrap !important;
+}
+
+/* Dimensionnement strict de chaque carte */
+.site-custom-panorama-card-wrapper {
+  display: inline-block !important;
+  vertical-align: top !important;
+  width: 360px !important;       /* Largeur fixe de la carte */
+  min-width: 360px !important;
+  max-width: 360px !important;
+  padding: 0 15px !important;
+  box-sizing: border-box !important;
+  white-space: normal !important; /* Permet au texte des paragraphes de s'afficher normalement */
+  
+  /* Supprime définitivement les effets de masquage du script d'animation AOS */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Structure interne propre aux cartes de votre template */
+.site-custom-panorama-card-wrapper .feat-card {
+  display: block !important;
+  width: 100% !important;
+  min-height: 350px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Arrête le défilement au survol */
+.site-custom-panorama-rail:hover {
+  animation-play-state: paused !important;
+}
+
+/* L'animation : Elle décale le rail de la moitié exacte de sa taille globale */
+@keyframes scrollInfiniPourcent {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Le groupe 2 remplace le groupe 1 instantanément sans espace blanc */
+  }
+  
 }

@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,43 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Assurer que la barre parente prend toute la largeur sans bloquer */
+.filter-bar {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+/* Forcer le conteneur en mode défilement horizontal */
+.portfolio-filters.panorama-container {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  white-space: nowrap !important;
+  justify-content: flex-start !important;
+  align-items: center;
+  padding: 0 0 15px 0 !important;
+  margin: 0 !important;
+  list-style: none;
+}
+
+/* Empêcher chaque bouton/filtre de se réduire ou de passer à la ligne */
+.portfolio-filters.panorama-container li {
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Masquer la barre de défilement proprement */
+.portfolio-filters.panorama-container::-webkit-scrollbar {
+  display: none !important;
+}
+.portfolio-filters.panorama-container {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }

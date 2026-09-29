@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--accent-color)(--contrast-color)
+  color: var;
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;

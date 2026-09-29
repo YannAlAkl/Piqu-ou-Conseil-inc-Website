@@ -1941,8 +1941,8 @@ section,
   top: 16px;
   left: 16px;
   padding: 5px 14px;
-  background-color: var(--nav-dropdown-background-color);
-  color:var(--accent-color);
+  background-color: var(--background-color);
+  color: var(--accent-color);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -4919,4 +4919,79 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/* Conteneur principal externe */
+.site-custom-panorama-section {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding: 40px 0 !important;
+  display: block !important;
+}
+
+/* Fenêtre de visionneuse */
+.site-custom-panorama-viewport {
+  overflow: hidden !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* LE RAIL : Sa taille s'ajuste automatiquement au contenu exact (max-content) */
+.site-custom-panorama-rail {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+  animation: infiniScrollPourcent 25s linear infinite !important;
+}
+
+/* Les deux groupes principaux alignés horizontalement */
+.site-custom-panorama-group {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  width: max-content !important;
+}
+
+/* Dimensionnement strict de chaque carte */
+.site-custom-panorama-card-wrapper {
+  flex: 0 0 360px !important;    /* Force chaque carte à faire exactement 360px */
+  width: 360px !important;
+  max-width: 360px !important;
+  min-width: 360px !important;
+  padding: 0 15px !important;     /* Espace entre les cartes */
+  box-sizing: border-box !important;
+  
+  /* Neutralise l'invisibilité provoquée par les scripts AOS */
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Forcer la boîte du template à utiliser toute la hauteur disponible */
+.site-custom-panorama-card-wrapper .feat-card {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  min-height: 340px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+/* Met en pause le défilement au survol */
+.site-custom-panorama-rail:hover {
+  animation-play-state: paused !important;
+}
+
+/* L'ANIMATION CORRECTE : Décale précisément de 50% de la largeur du rail (soit exactement le Groupe 1) */
+@keyframes infiniScrollPourcent {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Transition mathématiquement parfaite et invisible */
+  }
 }
