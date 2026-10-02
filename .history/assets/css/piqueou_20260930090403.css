@@ -89,7 +89,7 @@ body { font-size: 17px; }
 }
 .header .logo .sitename small {
   display: block;
-  color: var(--default-color);
+  color: var(--default-color) !important;
   white-space: nowrap;
   font-size: 10.5px;
   font-weight: 700;
@@ -227,33 +227,3 @@ body { font-size: 17px; }
   .header .navmenu { order: 3; margin-left: 12px; }
   .header-tools { margin-left: auto; }
 }
-
-/* ==========================================================
-   Ajouts uniquement — styles déplacés hors du HTML
-   ========================================================== */
-
-/* Conteneur icône des cartes (était dans <style> du HTML) */
-.card-icon-bg { position: relative; aspect-ratio: 5/3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-.card-icon-bg img.card-icon { height: 52%; width: auto; max-width: 60%; object-fit: contain; transition: transform .3s ease; }
-.showcase-card:hover .card-icon-bg img.card-icon { transform: scale(1.06); }
-@media (max-width: 576px) { .card-icon-bg img.card-icon { height: 48%; } }
-
-/* Crédits icônes Flaticon (était dans <style> du HTML) */
-.icon-credits { font-size: 12px; color: #8a8a85; text-align: center; padding: 18px 0 6px; margin: 0; }
-.icon-credits a { color: #8a8a85; }
-
-/* Fonds colorés des cartes (remplacent les style= inline du HTML) */
-.bg-service-green   { background: #EEF5E8; }
-.bg-service-teal    { background: #E9F4F3; }
-.bg-service-indigo  { background: #EDEFF8; }
-.bg-service-blue    { background: #E8F1F7; }
-.bg-service-purple  { background: #F3EEF8; }
-.bg-service-coral   { background: #F8EEEC; }
-.bg-service-neutral { background: #F0F0EC; }
-.bg-service-sky     { background: #ECF1FA; }
-
-/* Logo dans le footer (remplace le style= inline du HTML) */
-.footer .brand-section .logo img { height: 44px; width: auto; margin-right: 10px; }
-
-/* Surcharge spécificité : empêche main.css (.portfolio .showcase-card .card-image img) de déformer les icônes */
-.showcase-card .card-image img.card-icon { object-fit: contain !important; object-position: center !important; height: 52% !important; width: auto; max-width: 60%; }

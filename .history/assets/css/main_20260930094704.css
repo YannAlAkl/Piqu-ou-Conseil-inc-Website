@@ -1,0 +1,100 @@
+/*--------------------------------------------------------------
+# Piqueou Consulting — surcouche de marque pour Stratify
+# Chargé APRÈS main.css. Ne modifie pas le gabarit d'origine.
+--------------------------------------------------------------*/
+
+/* Polices — même esprit que asimm.org : Raleway (titres) + Roboto (texte) */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Raleway", "Segoe UI", sans-serif;
+  --nav-font: "Raleway", "Segoe UI", sans-serif;
+
+  /* Couleurs : neutres (blanc / noir / anthracite) + vert du logo en accent seulement */
+  --background-color: #ffffff;
+  --default-color: #4a4a46;
+  --heading-color: #151515;
+  --accent-color: #467f1f;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #3a3a37;
+  --nav-hover-color: #467f1f;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #3a3a37;
+  --nav-dropdown-hover-color: #467f1f;
+
+  --pq-ink: #0b0b0b;
+  --pq-ink-2: #1b1b1b;
+  --pq-brand: #72b43c;
+  --pq-navy: #151515;
+  --pq-navy-2: #2e2e2e;
+}
+
+.light-background {
+  --background-color: #f7f6f3;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #0b0b0b;
+  --default-color: #c9c9c4;
+  --heading-color: #ffffff;
+  --accent-color: #72b43c;
+  --surface-color: #1b1b1b;
+  --contrast-color: #0b0b0b;
+}
+
+/* Blocs pleins : fond clair au lieu de noir/vert */
+.hero .visual-block .accent-badge,
+.about .image-block .experience-badge,
+.services .svc-card .svc-icon-panel,
+.why-us .visual-panel .badge-metric,
+.contact .inquiry-card .card-intro-panel {
+  --accent-color: #467f1f;
+  --contrast-color: #151515;
+  background: #eef4e8;
+  border: 1px solid rgba(70, 127, 31, 0.14);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+.hero .visual-block .accent-badge { background: #ffffff; box-shadow: 0 12px 34px rgba(0, 0, 0, 0.10); }
+.hero .visual-block .accent-badge .badge-icon { background: #eef4e8; }
+.hero .visual-block .accent-badge .badge-icon i,
+.about .image-block .experience-badge i,
+.services .svc-card .svc-icon-panel i,
+.contact .inquiry-card .card-intro-panel .intro-badge i { color: var(--accent-color); }
+.contact .inquiry-card .card-intro-panel .intro-badge { background: #ffffff; color: var(--accent-color); }
+.contact .inquiry-card .card-intro-panel p,
+.contact .inquiry-card .card-intro-panel .intro-note span { color: #4a4a46; }
+.hero .visual-block .image-wrapper { box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); }
+.hero .intro-content h1 em { color: #467f1f; }
+.footer { border-top: 1px solid rgba(0, 0, 0, 0.07); }
+
+/* En-tête clair et net */
+.header { --background-color: rgba(255,255,255,0.97); border-bottom: 1px solid rgba(0,0,0,0.06); }
+.scrolled .header { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+body { font-size: 17px; }
+
+/* ---------- En-tête ---------- */
+.header .logo img { max-height: 46px; width: auto; margin-right: 10px; }
+.header .logo .sitename {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1;
+}
+.header .logo .sitename small {
+  display: block;
+  white-space: nowrap;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-top: 4px;
+}
+.header-tools { display: flex; align-items: center; gap: 14px; }
+.header-tools .lang-switch {
+  font-family: var(--nav-font);
+  font-size: 13px;

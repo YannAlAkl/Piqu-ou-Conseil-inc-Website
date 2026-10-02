@@ -257,3 +257,4 @@ body { font-size: 17px; }
 
 /* Surcharge spécificité : empêche main.css (.portfolio .showcase-card .card-image img) de déformer les icônes */
 .showcase-card .card-image img.card-icon { object-fit: contain !important; object-position: center !important; height: 52% !important; width: auto; max-width: 60%; }
+

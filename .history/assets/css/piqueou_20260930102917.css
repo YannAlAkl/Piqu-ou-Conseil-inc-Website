@@ -1,0 +1,115 @@
+  font-size: 17px;
+  color: var(--heading-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.framework-strip .fw-list i { color: var(--accent-color); }
+@media (max-width: 991px) { .framework-strip .fw-list { justify-content: flex-start; margin-top: 10px; } }
+
+/* ---------- Sections ---------- */
+.section-title h2 { letter-spacing: -0.3px; }
+.services .svc-card .svc-body h3 { font-size: 1.25rem; }
+.services .svc-card .svc-body .svc-frameworks { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 14px; }
+.services .svc-card .svc-body .svc-frameworks span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
+  border-radius: 50px;
+  padding: 3px 10px;
+}
+
+.portfolio .showcase-card .card-image img { object-fit: cover; object-position: left center; }
+
+/* Formulaire : liste déroulante et consentement Loi 25 */
+.contact .inquiry-card .card-form-panel .field-wrap select {
+  width: 100%;
+  background-color: var(--surface-color);
+  border: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-radius: 0;
+  padding: 10px 0 12px;
+  font-size: 15px;
+  color: var(--default-color);
+  font-family: inherit;
+}
+.contact .inquiry-card .card-form-panel .field-wrap select:focus { outline: none; border-bottom-color: var(--accent-color); }
+.contact .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.5; }
+.contact .consent input { margin-top: 4px; accent-color: var(--accent-color); width: 18px; height: 18px; flex-shrink: 0; }
+
+/* Infolettre */
+.footer .newsletter-form { display: flex; gap: 8px; margin-top: 14px; max-width: 460px; }
+.footer .newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 75%);
+  border-radius: 50px;
+  padding: 10px 18px;
+  font-size: 15px;
+  background: var(--surface-color);
+  color: var(--default-color);
+}
+.footer .newsletter-form input:focus { outline: 2px solid var(--accent-color); outline-offset: 1px; }
+.footer .newsletter-form button {
+  border: 0;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 700;
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+/* Emplacement à compléter */
+.todo { background: #fff4d6; color: #7a5200; border-radius: 4px; padding: 0 4px; }
+
+/* Messages du formulaire (masqués jusqu'à l'envoi — validate.js ajoute .d-block) */
+.php-email-form .loading,
+.php-email-form .error-message,
+.php-email-form .sent-message { display: none; }
+.php-email-form .error-message { background: #c8553d; color: #fff; padding: 12px 16px; border-radius: 8px; font-weight: 600; }
+.php-email-form .sent-message { background: var(--accent-color); color: #fff; padding: 12px 16px; border-radius: 8px; font-weight: 600; text-align: center; }
+.php-email-form .loading { text-align: center; padding: 12px; }
+.php-email-form .d-block { display: block; }
+
+/* Mobile : menu hamburger à droite, après les outils */
+@media (max-width: 1199px) {
+  .header .navmenu { order: 3; margin-left: 12px; }
+  .header-tools { margin-left: auto; }
+}
+
+/* ==========================================================
+   Ajouts uniquement — styles déplacés hors du HTML
+   ========================================================== */
+
+/* Conteneur icône des cartes (était dans <style> du HTML) */
+.card-icon-bg { position: relative; aspect-ratio: 5/3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-icon-bg img.card-icon { height: 52%; width: auto; max-width: 60%; object-fit: contain; transition: transform .3s ease; }
+.showcase-card:hover .card-icon-bg img.card-icon { transform: scale(1.06); }
+@media (max-width: 576px) { .card-icon-bg img.card-icon { height: 48%; } }
+
+/* Crédits icônes Flaticon (était dans <style> du HTML) */
+.icon-credits { font-size: 12px; color: #8a8a85; text-align: center; padding: 18px 0 6px; margin: 0; }
+.icon-credits a { color: #8a8a85; }
+
+/* Fonds colorés des cartes (remplacent les style= inline du HTML) */
+.bg-service-green   { background: #EEF5E8; }
+.bg-service-teal    { background: #E9F4F3; }
+.bg-service-indigo  { background: #EDEFF8; }
+.bg-service-blue    { background: #E8F1F7; }
+.bg-service-purple  { background: #F3EEF8; }
+.bg-service-coral   { background: #F8EEEC; }
+.bg-service-neutral { background: #F0F0EC; }
+.bg-service-sky     { background: #ECF1FA; }
+
+/* Logo dans le footer (remplace le style= inline du HTML) */
+.footer .brand-section .logo img { height: 44px; width: auto; margin-right: 10px; }
+
+/* Surcharge spécificité : empêche main.css (.portfolio .showcase-card .card-image img) de déformer les icônes */
+.showcase-card .card-image img.card-icon { object-fit: contain !important; object-position: center !important; height: 52% !important; width: auto; max-width: 60%; }
+
+/* Alignement des cartes : toutes les cartes d'une même rangée ont la même hauteur */
+.services .row > [class*="col"] { display: flex; }
+.services .showcase-card { display: flex; flex-direction: column; height: 100%; width: 100%; }
+.services .showcase-card .card-body { flex: 1; display: flex; flex-direction: column; }
+.services .showcase-card .card-body .card-tags { margin-top: auto; padding-top: 12px; }

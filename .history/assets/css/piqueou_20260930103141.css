@@ -257,3 +257,9 @@ body { font-size: 17px; }
 
 /* Surcharge spécificité : empêche main.css (.portfolio .showcase-card .card-image img) de déformer les icônes */
 .showcase-card .card-image img.card-icon { object-fit: contain !important; object-position: center !important; height: 52% !important; width: auto; max-width: 60%; }
+
+/* Alignement des cartes : toutes les cartes d'une même rangée ont la même hauteur */
+.services .row > [class*="col"] { display: flex; }
+.services .showcase-card { display: flex; flex-direction: column; height: 100%; width: 100%; }
+.services .showcase-card .card-body { flex: 1; display: flex; flex-direction: column; }
+.services .showcase-card .card-body .card-tags { margin-top: auto; padding-top: 12px; }
