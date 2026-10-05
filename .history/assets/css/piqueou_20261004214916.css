@@ -239,6 +239,7 @@ body { font-size: 17px; }
 /* Conteneur icône des cartes (était dans <style> du HTML) */
 .card-icon-bg { position: relative; aspect-ratio: 5/3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .card-icon-bg img.card-icon { height: 52%; width: auto; max-width: 60%; object-fit: contain; transition: transform .3s ease; }
+.card-icon-bg .card-symbol { color: var(--accent-color); font-size: 3.5rem; line-height: 1; }
 .showcase-card:hover .card-icon-bg img.card-icon { transform: scale(1.06); }
 @media (max-width: 576px) { .card-icon-bg img.card-icon { height: 48%; } }
 
@@ -261,7 +262,3 @@ body { font-size: 17px; }
 
 /* Surcharge spécificité : empêche main.css (.portfolio .showcase-card .card-image img) de déformer les icônes */
 .showcase-card .card-image img.card-icon { object-fit: contain !important; object-position: center !important; height: 52% !important; width: auto; max-width: 60%; }
-
-@media (min-width: 577px) {
-  #portfolio .isotope-container .showcase-card { min-height: 620px; }
-}
