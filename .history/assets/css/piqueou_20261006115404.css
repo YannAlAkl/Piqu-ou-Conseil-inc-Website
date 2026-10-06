@@ -1,0 +1,34 @@
+/*--------------------------------------------------------------
+# Piqueou Consulting — surcouche de marque pour Stratify
+# Chargé APRÈS main.css. Ne modifie pas le gabarit d'origine.
+--------------------------------------------------------------*/
+
+/* Polices — même esprit que asimm.org : Raleway (titres) + Roboto (texte) */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-font: "Raleway", "Segoe UI", sans-serif;
+  --nav-font: "Raleway", "Segoe UI", sans-serif;
+}
+
+/* Couleurs : neutres (blanc / noir / anthracite) + vert du logo en accent seulement */
+:root {
+  --background-color: #ffffff;
+  --default-color: #4a4a46;
+  --heading-color: #151515;
+  --accent-color: #72b43d;      /* vert du logo assombri, lisible sur blanc */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  --nav-color: #3a3a37;
+  --nav-hover-color: #72b43d;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #3a3a37;
+  --nav-dropdown-hover-color: #72b43d;
+
+  --pq-ink: #0b0b0b;            /* noir des sections sombres */
+  --pq-ink-2: #1b1b1b;
+  --pq-brand: #72b43d;          /* vert exact du logo */
+  --pq-navy: #151515;
+  --pq-navy-2: #2e2e2e;
+}

@@ -1862,8 +1862,8 @@ section,
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
   transition: all 0.4s ease;
-  height: auto;
-  min-height: 0;
+  height: 100%;
+  min-height: 420px;
   display: flex;
   flex-direction: column;
 }
@@ -1953,17 +1953,17 @@ section,
 }
 
 .portfolio .showcase-card .card-body {
-  padding: 16px 16px 18px;
+  padding: 18px 18px 20px;
   display: flex;
   flex-direction: column;
-  flex-grow: 0;
+  flex-grow: 1;
 }
 
 .portfolio .showcase-card .card-body .card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .portfolio .showcase-card .card-body .card-meta .meta-client {
@@ -2003,16 +2003,15 @@ section,
   font-size: 0.82rem;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   line-height: 1.55;
-  margin-bottom: 12px;
-  flex-grow: 0;
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 
 .portfolio .showcase-card .card-body .card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 0;
-  align-content: flex-start;
+  gap: 8px;
+  margin-top: auto;
 }
 
 .portfolio .showcase-card .card-body .card-tags .tag {

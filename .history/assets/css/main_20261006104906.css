@@ -1862,8 +1862,8 @@ section,
   overflow: hidden;
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 92%);
   transition: all 0.4s ease;
-  height: auto;
-  min-height: 0;
+  height: 100%;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
 }
@@ -1956,7 +1956,7 @@ section,
   padding: 16px 16px 18px;
   display: flex;
   flex-direction: column;
-  flex-grow: 0;
+  flex-grow: 1;
 }
 
 .portfolio .showcase-card .card-body .card-meta {
