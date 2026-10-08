@@ -408,7 +408,7 @@ h6 {
 
   .navmenu .active::before,
   .navmenu .active:focus::before {
-    width: 40px;
+    width: 60px;
   }
 
   .navmenu .active i,
