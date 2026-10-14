@@ -262,14 +262,7 @@ body { font-size: 17px; }
    Alignement des cartes
    ---------------------------------------------------------- */
 
-/* Section Services (Bootstrap grid — hauteur via flex) */
-.services .row > div { display: flex; flex-direction: column; }
-.services .showcase-card { height: 100%; }
-
 /* Section Cadres (Isotope — positionnement absolu, flex sans effet)
-   → min-height sur .card-body normalise toutes les cartes à la même hauteur */
-.portfolio .isotope-container .showcase-card .card-body { min-height: 230px; }
-
-/* Les deux sections : tags collés en bas de chaque carte */
-.portfolio .showcase-card .card-body .card-text { flex-grow: 1; }
-.portfolio .showcase-card .card-body .card-tags  { margin-top: auto; }
+   → pas de hauteur forcée : chaque carte garde la hauteur de son propre contenu */
+.portfolio .isotope-container { align-items: flex-start; }
+.portfolio .isotope-container .showcase-card { height: auto; }
