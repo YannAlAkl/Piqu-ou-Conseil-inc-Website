@@ -1,69 +1,85 @@
 <?php
 /**
- * Piqueou Conseil Inc. — Formulaire de contact
- *
- * Envoi via un serveur SMTP local sans authentification (Mailpit : 127.0.0.1:1025).
- * En production, remplacer $smtp_* par les paramètres du fournisseur courriel.
+ * Script de contact pour Piquéou Conseil Inc.
+ * Intégration Native Resend API (Phase de Test)
  */
 
-header( 'Content-Type: text/plain; charset=UTF-8' );
+// Permettre les requêtes depuis votre serveur local (Sécurité)
+header('Content-Type: application/json');
 
-$receiving_email_address = 'info@piqueou.ca';
+// 1. Récupération et nettoyage des données du formulaire Bootstrap
+$name    = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
+$email   = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL) : '';
+$subject = isset($_POST['subject']) ? strip_tags(trim($_POST['subject'])) : 'Nouveau message de contact';
+$message = isset($_POST['message']) ? htmlspecialchars(trim($_POST['message'])) : '';
 
-$smtp_host = '127.0.0.1';
-$smtp_port = 1025;
-
-$php_email_form = __DIR__ . '/../assets/vendor/php-email-form/php-email-form.php';
-if ( ! file_exists( $php_email_form ) ) {
-    die( 'Unable to load the PHP Email Form Library!' );
-}
-require_once $php_email_form;
-
-function sanitize( string $value ): string {
-    return htmlspecialchars( strip_tags( trim( $value ) ), ENT_QUOTES, 'UTF-8' );
-}
-
-if ( ( $_SERVER['REQUEST_METHOD'] ?? '' ) !== 'POST' ) {
-    http_response_code( 405 );
-    exit( 'Méthode non permise.' );
+// Validation de sécurité rapide
+if (empty($name) || empty($email) || empty($message)) {
+    http_response_code(400);
+    echo "Veuillez remplir tous les champs requis.";
+    exit;
 }
 
-$name      = sanitize( $_POST['name'] ?? '' );
-$email     = filter_var( trim( $_POST['email'] ?? '' ), FILTER_VALIDATE_EMAIL );
-$org       = sanitize( $_POST['org'] ?? '' );
-$framework = sanitize( $_POST['framework'] ?? '' );
-$message   = sanitize( $_POST['message'] ?? '' );
+// 2. Configuration de vos identifiants Resend
+// ⚠️ REMPLACEZ 're_xxxx_xxxx' PAR VOTRE VRAIE CLÉ API CRÉÉE SUR RESEND.COM
+$apiKey = 're_votre_cle_api_secrete'; 
 
-if ( $name === '' || ! $email || $message === '' ) {
-    exit( 'Veuillez remplir tous les champs requis.' );
-}
+// Construction du corps du mail avec un design HTML propre
+$htmlContent = "
+    <div style='font-family: sans-serif; padding: 20px; color: #333;'>
+        <h2 style='color: #00A3FF;'>Nouveau message de contact - Piquéou Conseil</h2>
+        <p><strong>Nom du contact :</strong> {$name}</p>
+        <p><strong>Email de l'expéditeur :</strong> {$email}</p>
+        <p><strong>Sujet :</strong> {$subject}</p>
+        <hr style='border: 1px solid #eee;' />
+        <p><strong>Message :</strong></p>
+        <p style='white-space: pre-line; background: #f9f9f9; padding: 15px; border-radius: 5px;'>{$message}</p>
+    </div>
+";
 
-$body = "Nom complet : $name\n"
-      . "Courriel : $email\n"
-      . "Organisation : $org\n"
-      . "Cadre visé : $framework\n\n"
-      . "Contexte :\n$message\n";
+// Préparation des données pour l'API Resend (Mode Test / Sandbox)
+// Préparation des données pour l'API Resend (Configuration validée pour votre compte)
+$data = [
+    // ⚠️ Ne touchez pas à cette ligne, elle doit rester exactement comme ça en test
+    'from'     => 'Piquéou Conseil <onboarding@resend.dev>', 
+    
+    //  Insérez votre adresse Gmail détectée sur votre compte Resend :
+    'to'       => ['alaklyann56@gmail.com'], 
+    
+    'subject'  => "Formulaire : " . $subject,
+    'html'     => $htmlContent,
+    'reply_to' => $email 
+];
 
-$mail = new PHPMailer( true );
 
-try {
-    $mail->isSMTP();
-    $mail->Host        = $smtp_host;
-    $mail->Port        = $smtp_port;
-    $mail->SMTPAuth    = false;
-    $mail->SMTPSecure  = '';
-    $mail->SMTPAutoTLS = false;
-    $mail->CharSet     = 'UTF-8';
+// ... (gardez le début de votre fichier forms/contact.php identique)
 
-    $mail->setFrom( $receiving_email_address, 'Piqueou – Site web' );
-    $mail->addAddress( $receiving_email_address );
-    $mail->addReplyTo( $email, $name );
-    $mail->Subject = 'Piqueou – Demande de ' . $name;
-    $mail->Body    = $body;
+// 3. Envoi de la requête à l'API Resend via PHP cURL
+$ch = curl_init();
 
-    $mail->send();
-    echo 'OK';
-} catch ( Throwable $e ) {
-    http_response_code( 500 );
-    echo 'Erreur lors de l\'envoi : ' . $mail->ErrorInfo;
+curl_setopt($ch, CURLOPT_URL, 'https://resend.com');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST'); // Force la méthode POST explicitement
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Authorization: Bearer ' . trim($apiKey), // Le trim() évite les espaces invisibles dans la clé
+    'Content-Type: application/json'
+]);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+// Optionnel pour le débogage si l'erreur persiste :
+// $error_msg = curl_error($ch); 
+
+curl_close($ch);
+
+// 4. Traitement du retour pour le script JavaScript du template
+if ($httpCode === 200 || $httpCode === 201) {
+    echo "OK";
+} else {
+    http_response_code($httpCode);
+    // Affiche la réponse de Resend pour comprendre le problème précis s'il y en a un
+    echo "Erreur serveur Resend (Code HTTP : " . $httpCode . "). Réponse : " . $response;
 }
